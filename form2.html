@@ -1,0 +1,60 @@
+<form>
+    <label for="login">Логин:</label>
+    <br>
+    <input type="text" id="login" name="login"><br><br>
+    
+    <label for="password">Пароль:</label>
+    <br>
+    <input type="password" id="password" name="password"><br><br>
+    
+    <label for="site-url">URL Сайта:</label>
+    <br>
+    <input type="text" id="site-url" name="site-url" value="http://"><br><br>
+    
+    <label for="site-name">Название сайта:</label>
+    <br>
+    <input type="text" id="site-name" name="site-name"><br><br>
+    
+    <label for="site-description">Описание сайта:</label>
+    <br>
+    <textarea id="site-description" name="site-description"></textarea><br><br>
+    
+    <label for="site-category">Категория сайта:</label>
+    <br>
+    <select id="site-category" name="site-category">
+      <option value="category1">Category 1</option>
+      <option value="category2">Category 2</option>
+      <option value="category3">Category 3</option>
+      <option value="category4">Category 4</option>
+    </select><br><br>
+    
+    <label for="banner">Баннер:</label>
+    <input type="file" id="banner" name="banner" onchange="fileSelected()">
+    <div id="file-info">Файл не выбран</div><br><br>
+    
+    <input type="button" value="Очиститьr" onclick="clearForm()">
+    <input type="submit" value="Send">
+  </form>
+  
+  <script>
+    function fileSelected() {
+      var file = document.getElementById("banner").files[0];
+      if (file) {
+        document.getElementById("file-info").innerHTML = file.name + " (Size: " + file.size + " bytes)";
+      } else {
+        document.getElementById("file-info").innerHTML = "Файл не выбран";
+      }
+    }
+  
+    function clearForm() {
+      document.getElementById("login").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("site-url").value = "http://";
+      document.getElementById("site-name").value = "";
+      document.getElementById("site-description").value = "";
+      document.getElementById("site-category").value = "category1";
+      document.getElementById("banner").value = "";
+      document.getElementById("file-info").innerHTML = "Файл не выбран";
+    }
+  </script>
+  
